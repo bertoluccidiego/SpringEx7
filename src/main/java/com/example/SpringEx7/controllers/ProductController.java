@@ -23,12 +23,14 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public String addOne(@RequestParam String name,
-                         @RequestParam double price,
+    // Products is fetched from the request parameters
+    public String addOne(Product product,
                          Model model) {
+        /*
         Product product = new Product();
         product.setName(name);
         product.setPrice(price);
+         */
         productService.addOne(product);
 
         model.addAttribute("products", productService.findAll());
